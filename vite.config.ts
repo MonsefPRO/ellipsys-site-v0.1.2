@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  base: '/ellipsys-site-v0.1.2/',   // ✅ indispensable pour GitHub Pages
   plugins: [
     react()
   ],
