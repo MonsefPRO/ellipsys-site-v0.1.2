@@ -1,14 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig({
-  base: '/ellipsys-site-v0.1.2/',   // ✅ indispensable pour GitHub Pages
-  plugins: [
-    react()
-  ],
-  optimizeDeps: {
-    exclude: ['lucide-react'],
-  },
+export default defineConfig(({ mode }) => ({
+  base: mode === 'gh' ? '/ellipsys-site-v0.1.2/' : '/',
+  plugins: [react()],
+  optimizeDeps: { exclude: ['lucide-react'] },
   build: {
     rollupOptions: {
       output: {
@@ -21,8 +17,5 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
     minify: 'esbuild'
   },
-  server: {
-    port: 5173,
-    strictPort: false
-  }
-});
+  server: { port: 5173, strictPort: false }
+}));
