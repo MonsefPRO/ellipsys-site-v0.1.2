@@ -6,14 +6,6 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   optimizeDeps: { exclude: ['lucide-react'] },
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          icons: ['lucide-react']
-        }
-      }
-    },
     chunkSizeWarningLimit: 1000,
     minify: 'esbuild'
   },
